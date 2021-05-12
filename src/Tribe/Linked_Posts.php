@@ -96,8 +96,10 @@ class Tribe__Events__Linked_Posts {
 		 */
 		$linked_post_types = apply_filters( 'tribe_events_register_default_linked_post_types', $default_post_types );
 
-		foreach ( $linked_post_types as $post_type ) {
-			$this->register_linked_post_type( $post_type );
+		if(is_array($linked_post_types)){
+			foreach ( $linked_post_types as $post_type ) {
+				$this->register_linked_post_type( $post_type );
+			}
 		}
 	}
 
